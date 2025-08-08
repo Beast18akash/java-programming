@@ -1,6 +1,7 @@
+package stack;
 import java.util.*;
 
-public class NextGreaterElementToRight {
+public class StockSpan {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
@@ -10,18 +11,18 @@ public class NextGreaterElementToRight {
         }
         
         Stack<Integer> stack = new Stack<>();
-        int[] result = new int[n];
+        int[] span = new int[n];
         
-        for (int i = n - 1; i >= 0; i--) {
-            while (!stack.isEmpty() && stack.peek() <= arr[i]) {
+        for (int i = 0; i < n; i++) {
+            while (!stack.isEmpty() && arr[stack.peek()] <= arr[i]) {
                 stack.pop();
             }
-            result[i] = stack.isEmpty() ? -1 : stack.peek();
-            stack.push(arr[i]);
+            span[i] = stack.isEmpty() ? i + 1 : i - stack.peek();
+            stack.push(i);
         }
         
-        for (int res : result) {
-            System.out.print(res + " ");
+        for (int s : span) {
+            System.out.print(s + " ");
         }
     }
 }

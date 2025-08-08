@@ -1,3 +1,4 @@
+package stack;
 // The line `package stack;` is declaring that the Java file belongs to the `stack` package. Packages
 // in Java are used to organize classes and interfaces into namespaces, which helps in avoiding naming
 // conflicts and provides a way to group related classes together. In this case, the `DuplcateBracket`
